@@ -1,0 +1,9 @@
+{{extends file="admin/base.html"}}
+{{block name=content}}
+    <form action="update.php" method="post">
+        <input type="hidden" name="id" value="{{$post.ID}}"><br/>
+        标题:<input type="text" name="title" value="{{$post.post_title}}"><br/>
+        内容:<textarea name="content" cols="50%" rows="15" tabindex="1">{{$post.post_content}}</textarea><br/>
+        <input type="submit" value="保存"/>
+    </form>
+{{/block}}

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link href="static/style.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="nav">
+                <ul>
+                    <li><a href="index.php">首页</a></li>
+                    <li><a href="about.php">关于本站</a></li>
+                </ul>
+            </div>
+            <br/>
+            <div id="content">
+                <table id="problems" border="1" style="width:300px">
+                    <tr>
+                        <th>题号</th>
+                        <th id="title">题目</th>
+                    </tr>
+                        
+                    <{section name=problem loop=$problems}>
+                    <tr>
+                    
+                        <td> <{$problems[problem].ID}></td>
+                        <td><a href="./problem.php?id=<{$problems[problem].ID}>"><{$problems[problem].post_title}></a></td>
+                    </tr>
+                    <{/section}>
+                </table>
+                <div id="page_nav">
+                <{for $page=1 to $total_pages}>
+                    <{if $page == $current_page}>
+                        <a href="./page.php?page=<{$page}>" id="current"><{$page}></a>
+                    <{else}>
+                        <a href="./page.php?page=<{$page}>"><{$page}></a>
+                    <{/if}>
+                <{/for}>
+                </div>
+            </div>
+            <footer id="footer">
+                &copy;2014 | shilong &#160;&#160;<a id="to_top" href="javascript:scroll(0,0)" >回顶部</a>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+{{extends file="base.html"}}
+{{block name=content}}
+    <h1>{{$post.post_title}}</h1>
+    <h3>问题&nbsp;{{$post.ID}}</h3>
+    {{if isset($login) && $login == true}}
+        <a href="./admin/edit.php?id={{$post.ID}}">编辑</a>
+    {{/if}}
+    <div id="post_content">{{$post.post_content|stripslashes}}</div>
+{{/block}}

@@ -1,0 +1,43 @@
+{{extends file="admin/base.html"}}
+{{block name=content}}
+    <div><a href="./comments.php">全部</a>|<a href="./comments.php?comment_status=moderated">待审</a>|<a href="./comments.php?comment_status=approved">批准</a>
+    </div>
+    <div>
+        <form action="update_comments.php" name="comment_form">
+            <table id="comments" border="1">
+            {{section name=comment loop=$comments}}
+                <tr>
+                    <th>
+                        <input type="checkbox" name="ids" value="{{$comments[comment].comment_ID}}"/>
+                    </th>
+                    <td> {{$comments[comment].user}}</td>
+                    <td> {{$comments[comment].email}}</td> 
+                    <td> {{$comments[comment].comment_content}}</td>
+                </tr>
+                <br/>
+            {{/section}}
+            </table>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <div id="page_nav">
+    {{if isset($comment_status) && $comment_status != ""}}
+        {{for $page=1 to $total_pages}}
+            {{if $page == $current_page}}
+                <a href="./comments.php?comment_status={{$comment_status}}&page={{$page}}" id="current">{{$page}}</a>
+            {{else}}
+                <a href="./comments.php?comment_status={{$comment_status}}&page={{$page}}">{{$page}}</a>
+            {{/if}}
+        {{/for}}
+    {{else}}
+        {{for $page=1 to $total_pages}}
+            {{if $page == $current_page}}
+                <a href="./comments.php?page={{$page}}" id="current">{{$page}}</a>
+            {{else}}
+                <a href="./comments.php?page={{$page}}">{{$page}}</a>
+            {{/if}}
+        {{/for}}
+    {{/if}}
+    </div>
+
+{{/block}}

@@ -1,0 +1,21 @@
+{{extends file="admin/base.html"}}
+{{block name=content}}
+    <div><a href="./comments.php">全部</a>|<a href="./comments.php?comment_status=moderated">待审</a>|<a href="./comments.php?comment_status=approved">批准</a>
+    </div>
+    <div>
+        {{section name=comment loop=$comments}}
+            <hr/> 
+            <p> {{$comments[comment].comment_content}}</p>
+        {{/section}}
+    </div>
+    <div id="page_nav">
+    {{for $page=1 to $total_pages}}
+        {{if $page == $current_page}}
+            <a href="./comments.php?page={{$page}}" id="current">{{$page}}</a>
+        {{else}}
+            <a href="./comments.php?page={{$page}}">{{$page}}</a>
+        {{/if}}
+    {{/for}}
+    </div>
+
+{{/block}}

@@ -1,0 +1,56 @@
+{{extends file="base.html"}}
+{{block name=content}}
+    <h1>{{$post.post_title}}</h1>
+    <h3>问题&nbsp;{{$post.ID}}</h3>
+    {{if isset($login) && $login == true}}
+        <a href="./admin/edit.php?id={{$post.ID}}">编辑</a>
+    {{/if}}
+    <div id="post_content">{{$post.post_content|stripslashes}}</div>
+    <div id="comments">
+        <h3>留言 </h3>
+        <hr class="line"/>
+        <div class="commentlist">
+        {{section name=comment loop=$comments}}
+            <div id="comment-{{$comments[comment].comment_ID}}">
+                <div id="div-comment-{{$comments[comment].comment_ID}}">
+                    <div class="info">
+                        {{if $comments[comment].site eq null || $comments[comment].site eq "" || $comments[comment].site eq "null"}}
+                        <span id="author-{{$comments[comment].comment_ID}}">{{$comments[comment].user}}</span>&nbsp;说:
+                        {{else}}
+                        <a href="{{$comments[comment].site}}"><span id="author-{{$comments[comment].comment_ID}}">{{$comments[comment].user}}</span></a>&nbsp;说:
+                        {{/if}}
+                    </div>
+                    
+                    <div id="comment_body">
+                        <p>{{$comments[comment].comment_content|nl2br|htmlspecialchars_decode}}</p>
+                    </div>
+                    <div class="comment_footer">
+                      <p> {{$comments[comment].comment_date}} | <a onclick='return addComment("comment-{{$comments[comment].comment_ID}}","author-{{$comments[comment].comment_ID}}", "comment_content")' href="javascript:void(0);" rel="nofollow">回复</a><p>
+                    </div>
+                </div>
+            </div>
+            <hr class="line"/>
+        {{/section}}
+        </div> 
+    </div>
+    <div id="respond">
+        <form action="./post-comments.php" id="comment_form" method="post" onsubmit="return validate_form();" name="comment_form">
+            <p><textarea name="comment_content" id="comment_content" cols="50%" rows="10"></textarea></p>
+            <p><input type="text" name="user" id="user" size="22"/>
+            <label for="user"><small>昵称(必填)</small></label></p>
+            
+            <p><input type="text" name="email" id="email" size="22"/>
+            <label for="email"><small>邮箱(必填,不公开)</small></label></p>
+            <p><input type="text" name="site" id="site" size="22"/>
+            <label for="site"><small>你的网址(非必填)</small></label></p>   
+			<p><input type="text" name="sum" id="sum" size="22"/>
+            <label for="sum"><small> = {{$a}} + {{$b}}(必填,确定你不是机器人)</small></label></p> 
+
+            <p><input name="submit" type="submit" id="submit" value="提交"/></p>
+            <p><input type="hidden" name="post_ID" value="{{$post.ID}}"/></p>
+			<p><input type="hidden" name="a" value="{{$a}}"/></p>
+            <p><input type="hidden" name="b" value="{{$b}}"/></p>
+
+        </form>
+    </div>
+{{/block}}

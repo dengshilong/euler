@@ -1,0 +1,132 @@
+body {
+	/*background:#fff url(img/bg.jpg) repeat-x;*/
+    font-size :1em;
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
+	color:#fff
+	background: -webkit-linear-gradient(155deg, rgba(67,162,229,1), rgba(67,162,229,0)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(155deg,  rgba(67,162,229,1), rgba(67,162,229,0)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(155deg, rgba(67,162,229,1), rgba(67,162,229,0)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(155deg, rgba(67,162,229,1), rgba(67,162,229,0)); /* Standard syntax (must be last) */
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+a:hover {
+	color: #0E1ED3;
+}
+#left{
+    width 30%;
+    float: left;
+}
+#nav ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    text-align:center;
+}
+#nav li{
+    float: left;
+}
+#nav a{
+    /*display:block;*/
+    text-decoration: none;
+    margin: 0 5px 0 0;
+}
+#nav a:hover{
+	/*background-color: #ffffff;*/
+	color: blue;
+}
+#posts {
+    margin: 20px 0 20px 0;
+}
+table{
+    border-collapse:collapse;
+	border-color: #ffffff;
+}
+td{
+	color:#fff;
+    padding:10px 20px 10px 20px;
+	border-color: #ffffff;
+}
+.title a:hover {
+	/*background-color: #ffffff;*/
+}
+#page_nav {
+    text-align: center;
+}
+#page_nav a{
+    display:block;
+    width:20px;
+    padding: 2px;
+    margin: 0 5px 0 0;
+    text-decoration: none;
+    float:left;
+    border-color: #DDDDDD;
+}
+#page_nav a:hover {
+    background-color: #ffffff;
+}
+
+#page_nav .current{
+    background-color: #ffffff;
+}
+.current {
+	color: #0E1ED3;
+}
+#container{
+    font-size: 1em;
+    padding: 20px 0px 0px 0px;
+    width: 60%;
+    float: right;
+	color: #fff;
+}
+#post_content {
+	background-color: #fff;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 1em;
+    padding: 10px;
+    margin: 10px 0 10px 0;
+	color: #000;
+}
+#post_content a{
+    color: #0E1ED3;
+}
+.post_title {
+	margin: 5px;
+}
+
+#footer {
+    margin: 0 auto;
+    padding: 7px 0;
+    clear: both;
+    position: relative;
+    font-size: 1em;
+    color: #999;
+}
+#footer #to_top {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	cursor: pointer;
+	display: block;
+	font-weight: bold;
+	color: blue;
+}
+ul {
+    list-style: none;
+}
+.comment_body{
+    margin : 0 0 0 5px;
+    padding : 0 0 0 5px;
+}
+#comment_form {
+	color: #0E1ED3;
+}	
+.line {
+	color: #fff;
+}

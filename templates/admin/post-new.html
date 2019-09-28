@@ -1,0 +1,8 @@
+{{extends file="admin/base.html"}}
+{{block name=content}}
+    <form action="{{$action}}" method="post">
+        标题:<input type="text" name="title"><br/> 
+        内容:<textarea name="content" cols="50%" rows="15" tabindex="1"></textarea><br/>
+        <input type="submit" value="保存"/>
+    </form>
+{{/block}}
